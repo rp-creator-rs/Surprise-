@@ -1,37 +1,76 @@
 function revealSurprise() {
     const lid = document.querySelector('.lid');
-    lid.style.transform = 'translateY(-150px)';
+    const ribbon = document.querySelector('.ribbon');
+    const box = document.querySelector('.box');
+
+    // Make the lid, ribbon, and box fall
+    lid.style.transform = 'translateY(350px)';
     lid.style.transition = 'transform 1s ease-in-out';
+    
+    ribbon.style.transform = 'translateY(350px)';
+    ribbon.style.transition = 'transform 1s ease-in-out';
+    
+    box.style.transform = 'translateY(350px)';
+    box.style.transition = 'transform 1s ease-in-out';
 
-    const photoContainer = document.getElementById('photo-container');
-    const message = document.getElementById('surprise-message');
-    const button = document.getElementById('playSongButton');
+    // Reveal the photo and message after the box falls
+    setTimeout(() => {
+        const photoContainer = document.getElementById('photo-container');
+        const message = document.getElementById('surprise-message');
+        photoContainer.style.display = 'block';
+        message.style.display = 'block';
 
-    // Reveal elements
-    photoContainer.style.display = 'block';
-    message.style.display = 'block';
-    button.style.display = 'none'; // Hide the button since the song plays automatically
+        // Play the birthday song
+        const song = document.getElementById("birthdaySong");
+        song.play();
 
-    // Play the birthday song
-    const song = document.getElementById("birthdaySong");
-    song.play();
-
-    // Launch confetti
-    launchConfetti();
+        // Start continuous animations
+        startContinuousAnimations();
+    }, 1000);
 }
 
-function launchConfetti() {
-    const confettiContainer = document.getElementById('confetti-container');
+function startContinuousAnimations() {
+    // Start falling bubbles
+    setInterval(() => {
+        createFallingBubble();
+    }, 500); // Create a bubble every 500ms
 
-    for (let i = 0; i < 50; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    // Start falling sparkles
+    setInterval(() => {
+        createFallingSparkle();
+    }, 300); // Create a sparkle every 300ms
+}
 
-        confettiContainer.appendChild(confetti);
+function createFallingBubble() {
+    const bubbleContainer = document.querySelector('.bubble-container') || createContainer('bubble-container');
 
-        setTimeout(() => confetti.remove(), 5000);
-    }
+    const bubble = document.createElement('div');
+    bubble.classList.add('bubble');
+    bubble.style.left = Math.random() * 100 + 'vw';
+    bubble.style.animationDuration = Math.random() * 3 + 4 + 's';
+    bubble.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 80%)`;
+
+    bubbleContainer.appendChild(bubble);
+
+    setTimeout(() => bubble.remove(), 7000); // Remove after animation ends
+}
+
+function createFallingSparkle() {
+    const sparkleContainer = document.querySelector('.sparkle-container') || createContainer('sparkle-container');
+
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('sparkle');
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.animationDuration = Math.random() * 3 + 2 + 's';
+
+    sparkleContainer.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 5000); // Remove after animation ends
+}
+
+function createContainer(className) {
+    const container = document.createElement('div');
+    container.classList.add(className);
+    document.body.appendChild(container);
+    return container;
 }
