@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="headline">🎂 Happy Birthday ~R.k.p Ji 🎂</h1>
+        <p class="subheadline">Click the box below to reveal your surprise!</p>
+
+        <div class="gift-box" onclick="revealSurprise()">
+            <div class="ribbon"></div>
+            <div class="lid"></div>
+            <div class="box"></div>
+        </div>
+
+        <!-- Hidden Glitch Photo -->
+        <div id="photo-container" class="hidden-photo">
+            <img src="img/img.jpg" alt="Happy Birthday!" class="glitch-photo">
+        </div>
+
+        <p id="surprise-message" class="hidden-message">🎉 Wishing you a magical year ahead!<br>From ~R.p 🎉</p>
+        <button id="playSongButton" class="hidden-button" onclick="playSong()">Play Birthday Song</button>
+    </div>
+
+    <div id="confetti-container"></div>
+    <audio id="birthdaySong" src="Music/song.mp3"></audio>
+    <script src="script.js"></script>
+    <br><br><br><br><br><br><br>
+    
+       
+    </b>
+    <footer class="footer">
+    <p>Created with ❤️ by Ritesh Ji</p>
+</footer>
+
+</body>
+</html>
