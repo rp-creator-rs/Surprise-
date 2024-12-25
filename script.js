@@ -73,4 +73,26 @@ function createContainer(className) {
     container.classList.add(className);
     document.body.appendChild(container);
     return container;
+  // Add pointing animation to the emoji on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const emoji = document.querySelector('.pointing-emoji');
+    emoji.style.display = 'block'; // Ensure the emoji is visible    
+ });   
+    // Remove pointing emoji and surprise box after the box is clicked
+document.querySelector('.box').addEventListener('click', () => {
+    const emoji = document.querySelector('.pointing-emoji');
+    const box = document.querySelector('.box');
+    
+    // Make the emoji disappear
+    emoji.style.display = 'none'; 
+    
+    // Make the box disappear
+    box.style.display = 'none'; 
+
+});
+
 }
+
+
+        
+
