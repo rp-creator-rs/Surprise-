@@ -194,7 +194,26 @@ body {
         opacity: 0;
     }
 }
+/* Emoji pointing animation */
+.pointing-emoji {
+    position: absolute;
+    top: 20px; /* Position above the box */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; /* Emoji size */
+    animation: point 1s infinite; /* Repeating animation */
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
 
+@keyframes point {
+    0%, 100% {
+        transform: translate(-50%, -10px); /* Slight downward motion */
+    }
+    50% {
+        transform: translate(-50%, 10px); /* Slight upward motion */
+    }
+            }
 
 /* Responsive Design */
 @media (max-width: 768px) {
