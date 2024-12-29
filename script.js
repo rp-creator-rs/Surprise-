@@ -3,23 +3,17 @@ function revealSurprise() {
     const ribbon = document.querySelector('.ribbon');
     const box = document.querySelector('.box');
 
-    // Make the lid, ribbon, and box fall
-    lid.style.transform = 'translateY(350px)';
-    lid.style.transition = 'transform 1s ease-in-out';
     
-    ribbon.style.transform = 'translateY(350px)';
-    ribbon.style.transition = 'transform 1s ease-in-out';
-    
-    box.style.transform = 'translateY(350px)';
-    box.style.transition = 'transform 1s ease-in-out';
-
     // Reveal the photo and message after the box falls
     setTimeout(() => {
         const photoContainer = document.getElementById('photo-container');
         const message = document.getElementById('surprise-message');
+        const leftgif = document.getElementById('gif-left');
+        const rightgif = document.getElementById('gif-right');
         photoContainer.style.display = 'block';
         message.style.display = 'block';
-
+        leftgif.style.display = 'block';
+        rightgif.style.display = 'block';
         // Play the birthday song
         const song = document.getElementById("birthdaySong");
         song.play();
@@ -73,7 +67,8 @@ function createContainer(className) {
     container.classList.add(className);
     document.body.appendChild(container);
     return container;
-  // Add pointing animation to the emoji on page load
+
+   // Add pointing animation to the emoji on page load
 document.addEventListener('DOMContentLoaded', () => {
     const emoji = document.querySelector('.pointing-emoji');
     emoji.style.display = 'block'; // Ensure the emoji is visible    
@@ -91,8 +86,7 @@ document.querySelector('.box').addEventListener('click', () => {
 
 });
 
+
 }
 
-
-        
 
