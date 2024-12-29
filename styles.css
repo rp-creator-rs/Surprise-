@@ -79,12 +79,15 @@ body {
     overflow: hidden;
     border-radius: 10px;
     position: relative;
+   
+    
 }
 
 .glitch-photo {
     width: 100%;
     height: auto;
     animation: glitch 2s infinite;
+    margin-top:10px;
 }
 
 @keyframes glitch {
@@ -102,7 +105,7 @@ body {
     font-size: 1.5rem;
     color: #fff;
     text-shadow: 0 0 5px #fff, 0 0 10px #f39;
-    margin-top: 20px;
+    margin-top:20px;
     animation: fadeIn 2s ease-in-out;
 }
 
@@ -194,6 +197,7 @@ body {
         opacity: 0;
     }
 }
+
 /* Emoji pointing animation */
 .pointing-emoji {
     position: absolute;
@@ -213,7 +217,45 @@ body {
     50% {
         transform: translate(-50%, 10px); /* Slight upward motion */
     }
-            }
+}
+/* Container for the image and GIFs */
+.gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between elements */
+}
+
+/* Image styling */
+#image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* GIF styling */
+#gif-left {
+    width: 60px; /* Adjust the size of the GIFs */
+    height: auto;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left:5px;
+    margin-top:px;
+}
+#gif-right {
+    width: 60px; /* Adjust the size of the GIFs */
+    height: auto;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left:80px;
+    margin-top:-57px;
+    
+}
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
